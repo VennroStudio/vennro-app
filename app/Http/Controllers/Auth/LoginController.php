@@ -33,7 +33,7 @@ class LoginController extends Controller
         $user->last_activity = now();
         $user->status = 'online';
         $user->save();
-        return redirect()->route('profile.show', ['user' => $user->id]);
+        return redirect()->route('profile.show', ['userId' => $user->id]);
     }
 
     public function destroy(Request $request)

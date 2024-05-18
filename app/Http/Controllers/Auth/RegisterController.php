@@ -30,6 +30,6 @@ class RegisterController extends Controller
         ]);
 
         Auth::login($user);
-        return redirect()->route('profile', ['user' => $user->id]);
+        return redirect()->route('profile', ['userId' => $user->id]);
     }
 }

@@ -71,4 +71,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Dialog::class, 'user1_id')->orWhere('user2_id', $this->id);
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class, 'user_id');
+    }
+
+    public function relatedNotifications()
+    {
+        return $this->hasMany(Notification::class, 'related_user_id');
+    }
 }
