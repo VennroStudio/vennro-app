@@ -35,11 +35,6 @@ Route::get('/profile/news', [NewsController::class, 'show'])->middleware('auth')
 
 Route::get('/notifications', [NotificationController::class, 'index'])->middleware('auth')->name('notifications');
 
-Route::post('/profile/create/post', [PostController::class, 'store'])->middleware('auth')->name('profile.add-post');
-Route::delete('/profile/delete/post/{post}', [PostController::class, 'destroy'])->middleware('auth')->name('profile.deleted-post');
-Route::post('/profile/like/post/{post}', [LikeController::class, 'store'])->middleware('auth')->name('profile.like-post');
-Route::delete('/profile/dislike/post/{post}', [LikeController::class, 'destroy'])->middleware('auth')->name('profile.dislike-post');
-
 
 
 Route::middleware('auth')->post('/user/activity/online', [UserActivityController::class, 'online']);
