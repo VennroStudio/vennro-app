@@ -1,0 +1,239 @@
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 20px;
+    margin: auto;
+}
+.form-floating {
+    padding: 5px;
+}
+.my-nav svg{
+    width: 20px;
+}
+.dropdown-toggle::after {
+    color: white;
+    vertical-align: 0!important;
+}
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #fff0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #2b3035;
+    border-radius: 20px;
+    border: 3px solid #212529;
+}
+
+iframe{
+    width: 100%!important;
+    height: 300px!important;
+}
+
+.profile_header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.profile_avatar {
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.profile_info {
+    width: 33%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+}
+.profile_button {
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.profile_avatar_header {
+    width: 33%;
+    margin-bottom: 20%;
+    margin-right: 20px;
+    border: 10px solid #2b3035;
+    border-radius: 100%;
+}
+.small_user_avatar img {
+    width: 80%;
+}
+.small_user_name {
+    font-size: 11px;
+}
+.small_user_lastname {
+    font-size: 11px;
+}
+.small_user_status {
+    font-size: 10px;
+}
+
+
+
+
+
+
+.file_wall {
+    color: transparent;
+    width: 40px;
+    cursor: pointer;
+}
+.file_wall::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.file_wall::before {
+    content: url(http://127.0.0.1:5173/public/img/load_photo.png);
+    display: inline-block;
+    padding: 3px 8px;
+    vertical-align: text-top;
+}
+#postForm{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.button_send_wall {
+    padding: 6px 7px;
+    border-radius: 30px;
+    background: #393939;
+}
+.send_wall {
+    width: 100%;
+    position: relative;
+    top: -1px;
+}
+.comment_for_post{
+    width: 80%;
+    height: 45px;
+}
+
+#previewImage {
+    width: 50%;
+}
+#removePhotoButton {
+    width: 100%;
+}
+
+
+
+
+
+
+
+.user_post_avatar img {
+    width: 60px;
+    border-radius: 50px;
+}
+.info_post_created {
+    font-size: 12px;
+}
+.post_comment {
+    font-size: 13px;
+}
+.likes {
+    width: 90px;
+    height: 35px;
+}
+.dialog-list {
+    min-height: 550px;
+}
+.dialogs {
+    height: 50px;
+}
+.dialogs:hover {
+    background: #3d424a;
+    border-radius: 5px;
+}
+.sayer_avatar{
+    position: relative;
+}
+.sayer_avatar span {
+    background-color: lime;
+    width: 9px;
+    height: 9px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    left: 80%;
+    top: 80%;
+}
+.sayer_avatar img {
+    width: 50px;
+    border-radius: 50px;
+}
+.message {
+    font-size: 12px;
+    min-height: 30px;
+    border-radius: 5px;
+}
+.new-messages {
+    width: 25px;
+    font-size: 11px;
+    padding: 3px;
+    border: 1px solid #545454;
+    border-radius: 100px;
+}
+
+.dialog-chat {
+    height: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-x: scroll;
+    position: relative;
+}
+.dialog_avatar img {
+    width: 40px;
+    border-radius: 50px;
+}
+.message-dialog {
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.message-dialog:hover {
+    background: #3d424a;
+    border-radius: 5px;
+}
+.message {
+    width: 95%;
+    word-wrap: break-word
+}
+.dialog-chat::-webkit-scrollbar {
+    width: 0px;
+}
+.dialog-textarea {
+    width: 90%;
+    height: 70px;
+}
+.button-dialog {
+    margin-left: 1%;
+}
+
