@@ -17,6 +17,15 @@ class Notification extends Model
     {
         return $this->morphTo(Subscription::class);
     }
+    public function like()
+    {
+        return $this->belongsTo(Like::class, 'notifiable_id');
+    }
+    public function post()
+    {
+        $postId = $this->like->post_id;
+        return Post::find($postId);
+    }
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

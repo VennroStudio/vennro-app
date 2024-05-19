@@ -1,6 +1,7 @@
 <?php
 namespace App\Livewire\Post;
 
+use App\Models\Notification;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -31,11 +32,6 @@ class PostManager extends Component
             ->take($this->perPage * $this->page)
             ->get();
     }
-    public function loadMore()
-    {
-        $this->page++;
-        $this->loadPosts();
-    }
 
     public function deletePost($postId)
     {
@@ -48,14 +44,21 @@ class PostManager extends Component
         $post->delete();
         $this->loadPosts();
     }
+
     public function addLike($postId)
     {
         $post = Post::find($postId);
-        $post->likes()->create(['user_id' => Auth::id()]);
+        $like = $post->likes()->create(['user_id' => Auth::id()]);
         $post->increment('likes');
-
+        Notification::create([
+            'user_id' => Auth::id(),
+            'related_user_id' => $post->user_id,
+            'notifiable_type' => 'Like',
+            'notifiable_id' => $like->id,
+        ]);
         $this->loadPosts();
     }
+
 
     public function removeLike($postId)
     {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Subscription;
 use App\Models\Notification;
+use App\Models\Post;
 
 
 class NotificationController extends Controller

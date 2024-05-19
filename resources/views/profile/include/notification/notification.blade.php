@@ -11,7 +11,14 @@
             <div class="info_user_post d-flex flex-row flex-nowrap align-items-start">
                 <div class="user_post_avatar"><img src="{{ asset('storage/img/upload/user/' . $notification->user->photo) }}"></div>
                 <div class="user_post_info d-flex flex-column flex-nowrap align-content-start justify-content-center align-items-start ms-2">
-                    <p class="info_post_name mb-0 fs-6 fw-semibold">Пользователь <a href="{{route('profile.show', ['userId'=>$notification->user->id])}}" style="text-decoration: none;color: #71aaeb;">{{ $notification->user->name.' '.$notification->user->lastname }}</a> подписался на вас.</p>
+                    <p class="info_post_name mb-0 fs-6 fw-semibold">Пользователь <a href="{{route('profile.show', ['userId'=>$notification->user->id])}}" style="text-decoration: none;color: #71aaeb;">{{ $notification->user->name.' '.$notification->user->lastname }}</a>
+                    @if($notification->notifiable_type === 'Subscription')
+                            подписался на Вас.</p>
+                    @elseif($notification->notifiable_type === 'Like')
+                            лайкнул Ваш
+                        <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_post_{{ $notification->like->post->id }}">пост</button> .</p>
+                        @include('profile.include.notification.post')
+                    @endif
                     <p class="info_post_created mb-0 fw-semibold text-muted">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $notification->created_at)->isoFormat('D MMMM [в] HH:mm') }}
                     </p>
                 </div>
