@@ -14,21 +14,16 @@ class NotificationSubscription
         Notification::create([
             'user_id' => $subscription->subscriber_id,
             'related_user_id' => $subscription->subscribed_to_id,
-            'event_id' => 1,
-            'status' => 1,
+            'notifiable_type' => 'Subscription',
+            'notifiable_id' => $subscription->id,
         ]);
     }
 
     public function handleSubscriptionDeleted(SubscriptionDeleted $event)
     {
         $subscription = $event->subscription;
-        $notification = Notification::where('user_id', $subscription->subscriber_id)
-            ->where('related_user_id', $subscription->subscribed_to_id)
-            ->first();
-
-        if ($notification) {
-            $notification->delete();
-        }
+        Notification::where('notifiable_id', $subscription->id)
+            ->delete();
     }
 }
 
