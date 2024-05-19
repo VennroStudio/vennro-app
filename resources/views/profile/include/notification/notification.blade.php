@@ -17,7 +17,7 @@
                     @elseif($notification->notifiable_type === 'Like')
                             лайкнул Ваш
                         <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_post_{{ $notification->like->post->id }}">пост</button> .</p>
-                        @include('profile.include.notification.post')
+                        @include('profile.include.notification.postModal')
                     @endif
                     <p class="info_post_created mb-0 fw-semibold text-muted">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $notification->created_at)->isoFormat('D MMMM [в] HH:mm') }}
                     </p>
