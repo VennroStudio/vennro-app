@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->index()->constrained('users')->onDelete('cascade');
             $table->foreignId('related_user_id')->index()->constrained('users')->onDelete('cascade');
-            $table->foreignId('event_id')->index()->constrained('events');
+            $table->morphs('notifiable');
             $table->string('status', 1)->default('1')->comment('1 - unread, 0 - read');
             $table->timestamps();
         });

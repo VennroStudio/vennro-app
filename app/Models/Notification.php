@@ -9,7 +9,14 @@ class Notification extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $fillable = [
+        'user_id', 'related_user_id', 'notifiable_type', 'notifiable_id', 'status',
+    ];
 
+    public function notifiable()
+    {
+        return $this->morphTo();
+    }
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -20,8 +27,4 @@ class Notification extends Model
         return $this->belongsTo(User::class, 'related_user_id');
     }
 
-    public function event()
-    {
-        return $this->belongsTo(Event::class);
-    }
 }

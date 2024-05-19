@@ -12,7 +12,7 @@ class NotificationController extends Controller
     {
         $userId = Auth::id();
 
-        $notifications = Notification::with(['event', 'user', 'relatedUser'])
+        $notifications = Notification::with(['notifiable', 'user', 'relatedUser'])
             ->where('related_user_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
