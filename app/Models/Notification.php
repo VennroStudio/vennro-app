@@ -15,7 +15,7 @@ class Notification extends Model
 
     public function notifiable()
     {
-        return $this->morphTo();
+        return $this->morphTo(Subscription::class);
     }
     public function user()
     {

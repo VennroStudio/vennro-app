@@ -19,7 +19,6 @@ class NotificationController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-
         return view('profile.notifications', compact('notifications'));
     }
 }
