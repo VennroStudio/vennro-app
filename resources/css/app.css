@@ -37,6 +37,21 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #212529;
 }
 
+.scroll-black::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll-black::-webkit-scrollbar-track {
+        background: #fff0;
+}
+
+.scroll-black::-webkit-scrollbar-thumb {
+        background-color: #2b3035;
+        border-radius: 20px;
+        border: 3px solid #212529;
+}
+
+
 iframe{
     width: 100%!important;
     height: 300px!important;
@@ -237,3 +252,20 @@ iframe{
     margin-left: 1%;
 }
 
+
+
+
+.not-avatar img {
+    width: 50px;
+    border-radius: 50px;
+}
+.not-post-img {
+    width: 50px;
+    border-radius: 10px;
+}
+.not-button {
+    background: none;
+    border: none;
+    color: #71aaeb;
+    padding: 0px;
+}

@@ -16,14 +16,11 @@ class DialogController extends Controller
     }
     public function create($userId)
     {
-        $creater = Auth::id();
+        $creator = Auth::id();
+        $randomNumber = rand(1000, 999999);
+        $randomId = intval($userId . $creator . $randomNumber);
 
-        $dialog = new Dialog();
-        $dialog->user1_id = $creater;
-        $dialog->user2_id = $userId;
-        $dialog->save();
-
-        return redirect()->route('dialog', ['dialogId' => $dialog->id]);
+        return redirect()->route('dialog', ['dialogId' => $randomId, 'user_1'  => $creator, 'user_2' => $userId]);
     }
     public function delete($dialogId)
     {

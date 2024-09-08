@@ -33,6 +33,12 @@ class PostManager extends Component
             ->get();
     }
 
+    public function loadMore()
+    {
+        $this->page++;
+        $this->loadPosts();
+    }
+
     public function deletePost($postId)
     {
         $post = Post::findOrFail($postId);
@@ -66,6 +72,9 @@ class PostManager extends Component
         $like = Like::where('user_id', $user_id)->where('post_id', $postId)->first();
 
         if ($like) {
+            Notification::where('notifiable_type', 'Like')
+                ->where('notifiable_id', $like->id)
+                ->delete();
             $like->delete();
             Post::find($postId)->decrement('likes');
         }
