@@ -1,7 +1,7 @@
 <div class="dialog-list p-4 mb-3 bg-body-tertiary rounded-3" wire:poll>
     <hr class="my-4 mb-2 mt-2">
     @forelse($dialogs as $dialog)
-        <a href="{{ route('dialog', ['dialogId' => $dialog->id]) }}" style="color: white;text-decoration: none;">
+        <a href="{{ route('dialog', ['im' => $dialog->id]) }}" style="color: white;text-decoration: none;">
             <div class="dialogs d-flex flex-row flex-nowrap align-content-center justify-content-between">
                 <div class="d-flex flex-row flex-nowrap align-items-start" style="width: 80%;">
                     <div class="sayer_avatar">

@@ -16,7 +16,12 @@
         @if(Auth::user()->id == $user->id)
             <a href="" class="btn btn-outline-light">Редактировать</a>
         @else
-            <a href="{{ route('create_dialog', ['userId' => $user->id]) }}" class="btn btn-outline-light">Сообщение</a>
+            <form action="{{ route('dialog.open') }}" method="post">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="userId" value="{{ $user->id }}">
+                <button type="submit" class="btn btn-outline-light ms-2">Сообщение</button>
+            </form>
         @if( $user->subscribers->contains('id', Auth::user()->id))
             <form action="{{ route('unsubscribe') }}" method="post">
                 @csrf

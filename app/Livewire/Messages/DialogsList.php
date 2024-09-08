@@ -33,14 +33,6 @@ class DialogsList extends Component
                 ->limit(1))
             ->get();
 
-        $this->dialogs = $this->dialogs->filter(function ($dialog) {
-            if (!Message::where('dialog_id', $dialog->id)->exists()) {
-                $dialog->delete();
-                return false;
-            }
-            return true;
-        });
-
         return view('livewire.messages.dialogs-list');
     }
 }

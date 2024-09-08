@@ -25,9 +25,9 @@ Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
 
 
-Route::get('/dialogs', [DialogController::class, 'index'])->name('dialogs');
-Route::get('/dialog/{dialogId}', [MessageController::class, 'index'])->name('dialog');
-Route::get('/create_dialog/{userId}', [DialogController::class, 'create'])->name('create_dialog');
+Route::get('/dialogs', [DialogController::class, 'allIndex'])->name('dialogs');
+Route::post('/dialog/open', [DialogController::class, 'open'])->name('dialog.open');
+Route::get('/dialog', [DialogController::class, 'oneIndex'])->name('dialog');
 Route::delete('/dialog/{dialogId}', [DialogController::class, 'delete'])->name('dialog.delete');
 
 Route::get('/profile/id{userId}', [ProfileController::class, 'show'])->middleware('auth')->name('profile.show');

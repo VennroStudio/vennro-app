@@ -10,11 +10,13 @@
             </a>
         </div>
         <div class="d-flex flex-row flex-nowrap align-content-center justify-content-end" style="width:33%">
+            @if($dialogId)
         <form action="{{ route('dialog.delete', ['dialogId' => $dialogId]) }}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit" class="border border-0 bg-transparent rounded-4 p-2"><img src="/img/del_post.png"></button>
         </form>
+            @endif
         </div>
     </div>
     <hr class="my-4 mb-2 mt-2">
@@ -50,7 +52,7 @@
         @csrf
         <input type="hidden" name="dialogId" value="{{ $dialogId }}">
         <textarea type="text" wire:model.defer="newMessage" name="message" class="dialog-textarea p-2 border bg-dark rounded-4" onkeydown="handleEnter(event)" placeholder="Напишите сообщение..."></textarea>
-        <button type="submit" class="button-dialog border bg-dark rounded-4"><img src="/img/send.png" class="send_wall" ></button>
+        <button type="submit" class="button-dialog border bg-dark rounded-4"><img src="/img/send.png" class="send_wall"></button>
     </form>
 
     <script>
@@ -68,4 +70,11 @@
             }
         }
     </script>
+{{--                <script>--}}
+{{--                    document.addEventListener('livewire:init', function () {--}}
+{{--                        Livewire.on('updateDialogUrl', dialogId => {--}}
+{{--                            window.history.pushState(null, null, '/dialog?im=' + dialogId);--}}
+{{--                        });--}}
+{{--                    });--}}
+{{--                </script>--}}
     </div>

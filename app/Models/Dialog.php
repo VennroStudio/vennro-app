@@ -10,6 +10,11 @@ class Dialog extends Model
     use HasFactory;
     protected $table = 'dialogs';
     public $timestamps = false;
+    protected $fillable = [
+        'id',
+        'user1_id',
+        'user2_id',
+    ];
     public function user1()
     {
         return $this->belongsTo(User::class, 'user1_id');
